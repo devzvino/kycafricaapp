@@ -78,7 +78,7 @@ router.post("/login", async (req, res) => {
   }
 });
 
-// update
+// update user infomation
 router.put("/:id", async (req, res) => {
   const userExist = await User.findById(req.params.id);
   let newPassword;

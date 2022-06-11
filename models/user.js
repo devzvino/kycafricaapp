@@ -17,15 +17,16 @@ const userSchema = mongoose.Schema({
     type: String,
     required: true,
   },
-  phone: {
-    type: String,
-    required: true,
-  },
   otp: {
     type: String,
   },
+  idType:{
+    type: String,
+    required: true,
+  },
   idFrontImage: {
     type: String,
+    required: true,
   },
   idBackIamge: {
     type: String,
