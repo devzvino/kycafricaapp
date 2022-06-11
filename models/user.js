@@ -1,15 +1,11 @@
 const mongoose = require("mongoose");
 
 const userSchema = mongoose.Schema({
-  fullName: {
+  firstName: {
     type: String,
     required: true,
   },
-  emailAddress: {
-    type: String,
-    required: true,
-  },
-  passwordHash: {
+  surname: {
     type: String,
     required: true,
   },
@@ -17,33 +13,28 @@ const userSchema = mongoose.Schema({
     type: String,
     required: true,
   },
-  homeLatitude: {
+  idNumber: {
     type: String,
-    default: "",
+    required: true,
   },
-  homeLongitude: {
+  phone: {
     type: String,
-    default: "",
+    required: true,
   },
-  workLatitude: {
+  otp: {
     type: String,
-    default: "",
   },
-  workLongitude: {
+  idFrontImage: {
     type: String,
-    default: "",
   },
-  street: {
+  idBackIamge: {
     type: String,
-    default: "",
   },
-  city: {
-    type: String,
-    default: "",
+  homeAddress: {
+    type: Array,
   },
-  country: {
-    type: String,
-    default: "",
+  workAddress: {
+    type: Array,
   },
 });
 

@@ -6,7 +6,7 @@ const jwt = require("jsonwebtoken");
 
 // get: get all users
 router.get("/", async (req, res) => {
-  const allUsers = await User.find().select("-passwordHash");
+  const allUsers = await User.find().select("-otp");
 
   if (!allUsers) {
     res.status(500).json({ success: false });
@@ -16,7 +16,7 @@ router.get("/", async (req, res) => {
 
 // get: get single user with id from prams
 router.get("/:id", async (req, res) => {
-  const singleUser = await User.findById(req.params.id).select("-passwordHash");
+  const singleUser = await User.findById(req.params.id).select("-otp");
 
   if (!singleUser) {
     res
@@ -30,17 +30,16 @@ router.get("/:id", async (req, res) => {
 // post: create new user
 router.post("/register", async (req, res) => {
   let newUser = new User({
-    fullName: req.body.fullName,
-    emailAddress: req.body.emailAddress,
-    passwordHash: bcrypt.hashSync(req.body.password, 10),
+    firstName: req.body.firstName,
+    surname: req.body.surname,
     phone: req.body.phone,
-    homeLatitude: req.body.homeLatitude,
-    homeLongitude: req.body.homeLongitude,
-    workLatitude: req.body.workLatitude,
-    workLongitude: req.body.workLongitude,
-    street: req.body.street,
-    city: req.body.city,
-    country: req.body.country,
+    idNumber: req.body.idNumber,
+    phone: req.body.phone,
+    otp: req.body.otp,
+    idFrontImage: req.body.idFrontImage,
+    idBackIamge: req.body.idBackIamge,
+    homeAddress: req.body.homeAddress,
+    workAddress: req.body.workAddress,
   });
   newUser = await newUser.save();
 
@@ -51,25 +50,31 @@ router.post("/register", async (req, res) => {
 
 // post /login
 router.post("/login", async (req, res) => {
-  const user = await User.findOne({ email: req.body.email });
+  const user = await User.findOne({ phone: req.body.phone });
   const secret = process.env.secret;
+  const userOtp = req.body.otp;
 
   if (!user) {
     res.status(400).send("The user not found");
   }
 
-  if (user && bcrypt.compareSync(req.body.password, user.passwordHash)) {
+  const comparedOtp = async (userOtp) => {
+    // compared value
+  };
+
+  //! make sure to refactor this code for Otp
+  if (user && comparedOtp) {
     const token = jwt.sign(
       {
         userId: user.id,
         isAdmin: user.isAdmin,
       },
       secret,
-      { expiresIn: "1w" }
+      { expiresIn: "4w" }
     );
-    res.status(200).send({ user: user.email, token: token });
+    res.status(200).send({ user: user, token: token });
   } else {
-    res.status(400).send("Password is wrong");
+    res.status(400).send("OTP is wrong");
   }
 });
 
