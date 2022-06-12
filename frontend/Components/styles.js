@@ -18,6 +18,7 @@ console.log(grey)
 
 export const FONTSTYLES = {
     heading1: {
+    
         color: grey,
         fontStyle: 'normal',
         fontSize: 24,
@@ -46,9 +47,16 @@ export const FONTSTYLES = {
     mainbtntext:{
         color: primary,
         fontStyle: 'normal',
-        fontSize: 16,
-        fontWeight: '400',
+        fontSize: 24,
+        fontWeight: '700',
     },
+    paratxt:{
+    
+        color: grey,
+        fontStyle: 'normal',
+        fontSize: 14,
+        fontWeight: '400',  
+    }
 
 };
 
