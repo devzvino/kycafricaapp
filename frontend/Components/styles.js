@@ -23,7 +23,7 @@ export const FONTSTYLES = {
         fontSize: 24,
         fontWeight: '400',
         letterSpacing: 0.5,
-        textAlign: 'center',
+        textAlign: 'left',
         width: '80%',
         marginBottom: 20,
     },
@@ -42,12 +42,19 @@ export const FONTSTYLES = {
         fontSize: 12,
         fontWeight: '400',
 
-    }
+    },
+    mainbtntext:{
+        color: primary,
+        fontStyle: 'normal',
+        fontSize: 16,
+        fontWeight: '400',
+    },
 
 };
 
 export const BUTTONS = {
     mainBtn: {
+        margin: 'auto',
         width: '80%',
         alignItems: 'center',
         borderRadius: 10,
@@ -88,7 +95,6 @@ export const BUTTONS = {
 
 export const LOGO = {
     main: {
-        resizeMode: 'center',
     }
 };
 
