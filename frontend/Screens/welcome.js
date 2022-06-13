@@ -53,19 +53,16 @@ const styles = StyleSheet.create({
     sect: {
         flex: 1,
         borderRadius: 20,
-       
-        paddingBottom:10, 
-       
     },
     footer: {
-        flex: 0.5,
+        flex: 0.3,
         alignItems:'center',
         justifyContent:'center'
     },
     innerSect:{
         marginTop:300,
         width: '90%',
-        left:30,
+        left:50,
     }
 });
 

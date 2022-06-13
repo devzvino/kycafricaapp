@@ -18,7 +18,7 @@ console.log(grey)
 
 export const FONTSTYLES = {
     heading1: {
-    
+        fontFamily:'Mulish-Regular',
         color: grey,
         fontStyle: 'normal',
         fontSize: 24,
@@ -54,8 +54,9 @@ export const FONTSTYLES = {
     
         color: grey,
         fontStyle: 'normal',
-        fontSize: 14,
-        fontWeight: '400',  
+        fontSize: 16,
+        fontWeight: '400',
+        width: '70%'  
     }
 
 };
